@@ -24,6 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
                     <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                    <li>@Html.ActionLink("Manage Images","Index","ProductImages")</li>
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
