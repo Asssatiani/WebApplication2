@@ -22,14 +22,24 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin")) {
+                    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                    <li>@Html.ActionLink("Products", "Index", "Products")</li>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
                         <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
                         <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
                     }
                 </ul>
+                @using (Html.BeginForm("Index", "Products", FormMethod.Get, new
+                {
+                    @class ="navbar-form navbar-left"
+                }))
+                {
+                    <div class="form-group">
+                        @Html.TextBox("Search", null, new { @class = "form-control", @placeholder= "Search Products" })
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                }
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
